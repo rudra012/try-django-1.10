@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class ShornerConfig(AppConfig):
-    name = 'shorner'
+    name = 'shortener'
