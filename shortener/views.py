@@ -1,14 +1,21 @@
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views import View
 
 from shortener.models import KirrURLModel
 
 
+def test_view(request, shortcode=None, *args, **kwargs):  # function based view
+    return HttpResponse("TEST View")
+
+
 def kirr_redirect_view(request, shortcode=None, *args, **kwargs):  # function based view
 
+    print(shortcode)
     obj = get_object_or_404(KirrURLModel, shortcode=shortcode)
-    return HttpResponse("Your shorcode is {sc}\n URL: {url}".format(sc=shortcode, url=obj.url))
+    return HttpResponseRedirect(obj.url)
+    # return HttpResponse("Your shorcode is {sc}\n URL: {url}".format(sc=shortcode, url=obj.url))
 
 
 class KirrCBView(View):  # class based view
