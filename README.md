@@ -15,3 +15,8 @@ $ python manage.py shell
 >>> obj2.save()
 
 
+# ModelManager Cutomization
+ > from shortener.models import KirrURLModel as km
+ > km.objects.all()
+ > km.objects.refresh_shortcodes()
+ 
