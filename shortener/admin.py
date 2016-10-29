@@ -5,4 +5,4 @@ from .models import KirrURLModel
 
 @admin.register(KirrURLModel)
 class KirrURLAdmin(admin.ModelAdmin):
-    list_display = ['url', 'short_code', 'modified', 'created']
+    list_display = ['url', 'shortcode', 'modified', 'created']
